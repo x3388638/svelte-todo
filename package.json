@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
+    "dev": "webpack-dev-server --open",
     "prettier:check": "prettier --check './**/*.{js,css,html,svelte}'",
     "prettier:write": "prettier --write './**/*.{js,css,html,svelte}'",
     "lint": "eslint './**/*.{js,svelte}'",
@@ -24,7 +25,8 @@
     "svelte": "^3.23.2",
     "svelte-loader": "^2.13.6",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "lint-staged": {
     "*.{js,svelte}": [
