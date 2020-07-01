@@ -16,10 +16,12 @@
 
 <script>
   import Task from './Task'
-  import { taskStore, taskCountStore } from '../stores'
+  import { taskStore } from '../stores'
 
   let visibility = 'all'
 
+  $: doneCount = $taskStore.filter((task) => task.done).length
+  $: todoCount = $taskStore.length - doneCount
   $: taskList =
     visibility === 'all'
       ? $taskStore
@@ -45,7 +47,7 @@
         handleToggleVisibility('todo')
       }}
     >
-      Todo: {$taskCountStore.todo}
+      Todo: {todoCount}
     </span>
     <span
       class="badge bg-secondary"
@@ -54,7 +56,7 @@
         handleToggleVisibility('done')
       }}
     >
-      Done: {$taskCountStore.done}
+      Done: {doneCount}
     </span>
   </div>
   {#each taskList as { name, done, key } (key)}
