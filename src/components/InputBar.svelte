@@ -2,10 +2,16 @@
   import { taskStore } from '../stores'
   let inputVal = ''
 
-  const handleClick = () => {
+  const handleAdd = () => {
     if (inputVal.length) {
       taskStore.addOne(inputVal)
       inputVal = ''
+    }
+  }
+
+  const handleKeypress = (e) => {
+    if (e.keyCode === 13) {
+      handleAdd()
     }
   }
 </script>
@@ -18,12 +24,13 @@
     aria-label="Add a new task"
     aria-describedby="addBtn"
     bind:value={inputVal}
+    on:keypress={handleKeypress}
   />
   <button
     class="btn btn-primary"
     type="button"
     id="addBtn"
-    on:click={handleClick}
+    on:click={handleAdd}
   >
     ADD
   </button>
