@@ -3,7 +3,7 @@
   "singleQuote": true,
   "trailingComma": "none",
   "svelteSortOrder": "styles-scripts-markup",
-  "svelteStrictMode": true,
+  "svelteStrictMode": false,
   "svelteBracketNewLine": true,
   "svelteAllowShorthand": false
 }
